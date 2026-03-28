@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jadwal Hidup Terstruktur 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d1117;
+    --bg2: #161b22;
+    --bg3: #1c2128;
+    --gold: #e8a838;
+    --gold2: #f5c842;
+    --cream: #e6ddd0;
+    --muted: #8b949e;
+    --border: rgba(230,200,120,0.12);
+    --work: #1a3a5c;
+    --work-acc: #58a6ff;
+    --study: #3d2a0a;
+    --study-acc: #e8a838;
+    --sport: #1a2a1a;
+    --sport-acc: #56d364;
+    --side: #1e2f1e;
+    --side-acc: #7ee787;
+    --cisco: #1a2840;
+    --cisco-acc: #79c0ff;
+    --htb: #2d1515;
+    --htb-acc: #f47067;
+    --sleep: #111820;
+    --sleep-acc: #6e7681;
+    --wind: #1e1e30;
+    --wind-acc: #bc8cff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--cream);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7;overflow-x:hidden}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:100;background:rgba(13,17,23,0.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 24px}
+  .nav-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;gap:4px;height:52px}
+  .nav-btn{padding:6px 14px;border-radius:20px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer;border:none;background:transparent;color:var(--muted);transition:all .2s}
+  .nav-btn.active,.nav-btn:hover{color:var(--gold);background:rgba(232,168,56,0.1)}
+  .nav-logo{font-family:'Playfair Display',serif;font-size:15px;color:var(--gold);margin-right:auto;letter-spacing:.02em}
+
+  /* HERO */
+  .hero{padding:64px 24px 48px;max-width:900px;margin:0 auto;position:relative}
+  .hero::before{content:'';position:absolute;top:0;right:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(232,168,56,0.06) 0%,transparent 70%);pointer-events:none}
+  .hero-tag{display:inline-block;font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(232,168,56,0.3);padding:4px 12px;border-radius:20px;margin-bottom:20px}
+  .hero h1{font-family:'Playfair Display',serif;font-size:clamp(32px,5vw,52px);font-weight:700;line-height:1.15;color:var(--cream);margin-bottom:12px}
+  .hero h1 em{font-style:normal;color:var(--gold)}
+  .hero p{color:var(--muted);font-size:15px;max-width:500px;margin-bottom:36px}
+  .stats-row{display:flex;flex-wrap:wrap;gap:12px}
+  .stat-pill{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:14px 20px;min-width:110px}
+  .stat-pill .val{font-family:'Playfair Display',serif;font-size:24px;color:var(--gold);font-weight:600}
+  .stat-pill .lbl{font-size:11px;color:var(--muted);margin-top:2px;text-transform:uppercase;letter-spacing:.08em}
+
+  /* SECTIONS */
+  .section{max-width:900px;margin:0 auto;padding:48px 24px}
+  .section-title{font-family:'Playfair Display',serif;font-size:26px;font-weight:600;color:var(--cream);margin-bottom:6px}
+  .section-sub{color:var(--muted);font-size:13px;margin-bottom:36px;letter-spacing:.02em}
+  .divider-label{display:flex;align-items:center;gap:12px;margin:28px 0 16px}
+  .divider-label span{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.12em;color:var(--gold);white-space:nowrap}
+  .divider-label::after{content:'';flex:1;height:1px;background:var(--border)}
+
+  /* TIMELINE */
+  .timeline{position:relative;padding-left:28px}
+  .timeline::before{content:'';position:absolute;left:7px;top:8px;bottom:8px;width:1px;background:linear-gradient(to bottom,transparent,var(--border) 10%,var(--border) 90%,transparent)}
+  .tl-item{position:relative;margin-bottom:10px;opacity:0;transform:translateY(12px);animation:fadeUp .4s ease forwards}
+  .tl-item::before{content:'';position:absolute;left:-24px;top:14px;width:7px;height:7px;border-radius:50%;border:1.5px solid var(--muted);background:var(--bg);transition:all .2s}
+  .tl-item:hover::before{border-color:var(--gold);box-shadow:0 0 8px rgba(232,168,56,0.4)}
+  .tl-card{border-radius:10px;padding:12px 16px;border-left:2.5px solid;cursor:default;transition:transform .2s}
+  .tl-card:hover{transform:translateX(3px)}
+  .tl-time{font-size:10px;font-weight:500;letter-spacing:.06em;margin-bottom:4px;opacity:.7}
+  .tl-title{font-size:14px;font-weight:500;color:var(--cream)}
+  .tl-sub{font-size:12px;margin-top:3px;opacity:.7;line-height:1.5}
+  .badge{display:inline-block;padding:1px 7px;border-radius:10px;font-size:10px;font-weight:500;margin-left:6px;vertical-align:middle}
+
+  /* CARD COLORS */
+  .c-work{background:var(--work);border-color:var(--work-acc)}.c-work .tl-time,.c-work .tl-sub{color:var(--work-acc)}
+  .c-study{background:var(--study);border-color:var(--study-acc)}.c-study .tl-time,.c-study .tl-sub{color:var(--study-acc)}
+  .c-sport{background:var(--sport);border-color:var(--sport-acc)}.c-sport .tl-time,.c-sport .tl-sub{color:var(--sport-acc)}
+  .c-side{background:var(--side);border-color:var(--side-acc)}.c-side .tl-time,.c-side .tl-sub{color:var(--side-acc)}
+  .c-cisco{background:var(--cisco);border-color:var(--cisco-acc)}.c-cisco .tl-time,.c-cisco .tl-sub{color:var(--cisco-acc)}
+  .c-htb{background:var(--htb);border-color:var(--htb-acc)}.c-htb .tl-time,.c-htb .tl-sub{color:var(--htb-acc)}
+  .c-sleep{background:var(--sleep);border-color:var(--sleep-acc)}.c-sleep .tl-time,.c-sleep .tl-sub{color:var(--sleep-acc)}
+  .c-wind{background:var(--wind);border-color:var(--wind-acc)}.c-wind .tl-time,.c-wind .tl-sub{color:var(--wind-acc)}
+  .c-prep{background:var(--bg2);border-color:#30363d}.c-prep .tl-time,.c-prep .tl-sub{color:var(--muted)}
+
+  .b-work{background:rgba(88,166,255,.15);color:#58a6ff}
+  .b-study{background:rgba(232,168,56,.15);color:#e8a838}
+  .b-new{background:rgba(86,211,100,.15);color:#56d364}
+  .b-rest{background:rgba(110,118,129,.15);color:#8b949e}
+  .b-tech{background:rgba(121,192,255,.15);color:#79c0ff}
+  .b-occ{background:rgba(188,140,255,.15);color:#bc8cff}
+  .b-bonus{background:rgba(86,211,100,.15);color:#7ee787}
+
+  /* GOAL CARDS */
+  .goals-grid{display:grid;gap:16px}
+  .goal-card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:20px 22px;transition:border-color .2s,transform .2s;opacity:0;transform:translateY(12px);animation:fadeUp .5s ease forwards}
+  .goal-card:hover{border-color:rgba(232,168,56,.3);transform:translateY(-2px)}
+  .goal-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px}
+  .goal-icon{font-size:22px;margin-right:10px}
+  .goal-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:600;color:var(--cream)}
+  .goal-sub{font-size:12px;color:var(--muted);margin-top:3px;line-height:1.5}
+  .progress-track{background:rgba(255,255,255,.06);border-radius:4px;height:4px;margin-top:14px;overflow:hidden}
+  .progress-fill{height:4px;border-radius:4px;background:linear-gradient(90deg,var(--gold),var(--gold2))}
+  .progress-label{font-size:10px;color:var(--muted);margin-top:5px;letter-spacing:.04em}
+  .cisco-mods{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+  .mod{border:1px solid var(--border);border-radius:8px;padding:10px;text-align:center}
+  .mod-active{border-color:rgba(121,192,255,.4);background:rgba(121,192,255,.07)}
+  .mod-num{font-family:'Playfair Display',serif;font-size:20px;color:var(--cream)}
+  .mod-name{font-size:10px;color:var(--muted);margin-top:2px}
+  .mod-period{font-size:10px;color:rgba(232,168,56,.6);margin-top:2px}
+  .mod-active .mod-num{color:#79c0ff}
+
+  /* SIDE HUSTLE */
+  .hustle-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:12px}
+  .hustle-card{border-radius:10px;padding:12px;text-align:center;border:1px solid var(--border)}
+  .hustle-title{font-size:13px;font-weight:500;margin-bottom:4px}
+  .hustle-detail{font-size:11px;opacity:.7;line-height:1.5}
+
+  /* TIPS */
+  .tips-list{display:grid;gap:10px}
+  .tip-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:14px 16px;display:flex;gap:14px;align-items:flex-start;opacity:0;transform:translateY(10px);animation:fadeUp .4s ease forwards}
+  .tip-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
+  .tip-title{font-size:13px;font-weight:500;color:var(--cream);margin-bottom:3px}
+  .tip-note{font-size:12px;color:var(--muted);line-height:1.5}
+
+  /* PRIORITY BOX */
+  .priority-box{background:linear-gradient(135deg,rgba(232,168,56,.08),rgba(232,168,56,.03));border:1px solid rgba(232,168,56,.2);border-radius:14px;padding:22px 24px;margin-top:20px}
+  .priority-box h3{font-family:'Playfair Display',serif;font-size:16px;color:var(--gold);margin-bottom:12px}
+  .priority-steps{display:flex;flex-wrap:wrap;gap:8px}
+  .step{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:20px;padding:5px 13px;font-size:12px;color:var(--muted)}
+  .step.highlight{border-color:rgba(232,168,56,.3);color:var(--gold);background:rgba(232,168,56,.07)}
+
+  /* FOOTER */
+  footer{max-width:900px;margin:0 auto;padding:32px 24px 48px;border-top:1px solid var(--border);text-align:center;color:var(--muted);font-size:12px}
+  footer strong{color:var(--gold);font-weight:500}
+
+  /* ANIMATIONS */
+  @keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+  .tl-item:nth-child(1){animation-delay:.05s}
+  .tl-item:nth-child(2){animation-delay:.1s}
+  .tl-item:nth-child(3){animation-delay:.15s}
+  .tl-item:nth-child(4){animation-delay:.2s}
+  .tl-item:nth-child(5){animation-delay:.25s}
+  .tl-item:nth-child(6){animation-delay:.3s}
+  .tl-item:nth-child(7){animation-delay:.35s}
+  .tl-item:nth-child(8){animation-delay:.4s}
+  .tl-item:nth-child(9){animation-delay:.45s}
+  .tl-item:nth-child(10){animation-delay:.5s}
+  .tl-item:nth-child(11){animation-delay:.55s}
+  .tl-item:nth-child(12){animation-delay:.6s}
+  .tl-item:nth-child(13){animation-delay:.65s}
+  .goal-card:nth-child(1){animation-delay:.05s}
+  .goal-card:nth-child(2){animation-delay:.12s}
+  .goal-card:nth-child(3){animation-delay:.19s}
+  .goal-card:nth-child(4){animation-delay:.26s}
+  .goal-card:nth-child(5){animation-delay:.33s}
+  .tip-card:nth-child(1){animation-delay:.05s}
+  .tip-card:nth-child(2){animation-delay:.1s}
+  .tip-card:nth-child(3){animation-delay:.15s}
+  .tip-card:nth-child(4){animation-delay:.2s}
+  .tip-card:nth-child(5){animation-delay:.25s}
+  .tip-card:nth-child(6){animation-delay:.3s}
+  .tip-card:nth-child(7){animation-delay:.35s}
+
+  /* TABS PANEL */
+  .page{display:none}.page.active{display:block}
+
+  /* BONUS BOX */
+  .bonus-box{background:rgba(86,211,100,.05);border:1px solid rgba(86,211,100,.2);border-radius:10px;padding:14px 16px;margin-top:16px;font-size:13px;color:#7ee787;line-height:1.6}
+  .bonus-box strong{font-weight:500}
+
+  /* ROTASI TABLE */
+  .rotasi-table{width:100%;border-collapse:collapse;margin-top:12px;font-size:12px}
+  .rotasi-table th{background:rgba(255,255,255,.04);padding:8px 12px;text-align:left;font-weight:500;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.07em;border-bottom:1px solid var(--border)}
+  .rotasi-table td{padding:9px 12px;border-bottom:1px solid rgba(255,255,255,.04);vertical-align:top}
+  .rotasi-table tr:last-child td{border-bottom:none}
+  .rotasi-table tr:hover td{background:rgba(255,255,255,.02)}
+
+  @media(max-width:600px){
+    .stats-row{gap:8px}.stat-pill{min-width:80px;padding:12px 14px}.stat-pill .val{font-size:20px}
+    .cisco-mods{grid-template-columns:repeat(2,1fr)}
+    .hustle-grid{grid-template-columns:1fr}
+    .hero h1{font-size:28px}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <span class="nav-logo">Jadwal 2026</span>
+    <button class="nav-btn active" onclick="showPage('jadwal-senin')">Sen–Sab</button>
+    <button class="nav-btn" onclick="showPage('jadwal-minggu')">Minggu</button>
+    <button class="nav-btn" onclick="showPage('roadmap')">Roadmap</button>
+    <button class="nav-btn" onclick="showPage('tips')">Tips</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">Personal Roadmap · 2026</div>
+  <h1>Hidup <em>Terstruktur,</em><br>Tujuan Tercapai</h1>
+  <p>Jadwal harian lengkap untuk teknisi, mahasiswa online, dan multi-goals — seimbang antara karir, kuliah, kesehatan, dan penghasilan tambahan.</p>
+  <div class="stats-row">
+    <div class="stat-pill"><div class="val">6j</div><div class="lbl">Tidur/malam</div></div>
+    <div class="stat-pill"><div class="val">23:00</div><div class="lbl">Jam tidur</div></div>
+    <div class="stat-pill"><div class="val">05:00</div><div class="lbl">Bangun</div></div>
+    <div class="stat-pill"><div class="val">6</div><div class="lbl">Modul Cisco</div></div>
+    <div class="stat-pill"><div class="val">3</div><div class="lbl">Channel Cuan</div></div>
+  </div>
+</div>
+
+<!-- =================== SENIN-SABTU =================== -->
+<div id="jadwal-senin" class="page active">
+  <div class="section">
+    <div class="section-title">Senin – Sabtu</div>
+    <div class="section-sub">Rutinitas harian dari bangun jam 05:00 hingga tidur jam 23:00</div>
+
+    <div class="divider-label"><span>Subuh</span></div>
+    <div class="timeline">
+      <div class="tl-item"><div class="tl-card c-prep">
+        <div class="tl-time">05:00 – 05:15</div>
+        <div class="tl-title">Bangun · Air putih · Cuci muka</div>
+        <div class="tl-sub">Langsung gerak — jangan lihat HP dulu</div>
+      </div></div>
+      <div class="tl-item"><div class="tl-card c-sport">
+        <div class="tl-time">05:15 – 06:00</div>
+        <div class="tl-title">🏃 Olahraga Pagi <span class="badge b-new">45 menit</span></div>
+        <div class="tl-sub">Jogging / calisthenics — fat burning maksimal karena kondisi puasa semalam</div>
+      </div></div>
+      <div class="tl-item"><div class="tl-card c-prep">
+        <div class="tl-time">06:00 – 06:55</div>
+        <div class="tl-title">Mandi · Sarapan · Persiapan kerja</div>
+        <div class="tl-sub">Sarapan wajib — tubuh butuh bahan bakar setelah olahraga pagi</div>
+      </div></div>
+    </div>
+
+    <div class="divider-label"><span>Jam Kerja</span></div>
+    <div class="timeline">
+      <div class="tl-item"><div class="tl-card c-work">
+        <div class="tl-time">07:00 – 14:30</div>
+        <div class="tl-title">Kerja – Teknisi <span class="badge b-work">standby</span></div>
+        <div class="tl-sub">Saat standby → belajar Cisco (3x/minggu) atau HTB (1x/minggu). Target min. 1 jam belajar/hari</div>
+      </div></div>
+    </div>
+
+    <div class="divider-label"><span>Sore — Slot Produktif</span></div>
+    <div class="timeline">
+      <div class="tl-item"><div class="tl-card c-prep">
+        <div class="tl-time">14:30 – 15:15</div>
+        <div class="tl-title">Pulang · Istirahat · Makan siang</div>
+        <div class="tl-sub">Boleh power nap maksimal 20 menit</div>
+      </div></div>
+      <div class="tl-item"><div class="tl-card c-side">
+        <div class="tl-time">15:15 – 16:15</div>
+        <div class="tl-title">💰 Side Hustle <span class="badge b-new">1 jam</span></div>
+        <div class="tl-sub">FB Pro posting · TikTok affiliate · Shopee listing. Fokus niche laptop/elektronik/jaringan</div>
+      </div></div>
+      <div class="tl-item"><div class="tl-card c-cisco">
+        <div class="tl-time">16:15 – 18:00</div>
+        <div class="tl-title">📡 Cisco / HTB / Servis Laptop <span class="badge b-bonus">slot bonus 1j 45m</span></div>
+        <div class="tl-sub">Slot ini lahir dari perubahan jadwal kuliah — gunakan untuk belajar teknis lebih dalam atau kerjakan servis laptop yang masuk</div>
+      </div></div>
+      <div class="tl-item"><div class="tl-card c-prep">
+        <div class="tl-time">18:00 – 18:30</div>
+        <div class="tl-title">Makan malam · Persiapan kuliah</div>
+        <div class="tl-sub">Makan sebelum kuliah agar bisa fokus penuh</div>
+      </div></div>
+    </div>
+
+    <div class="divider-label"><span>Malam — Kuliah &amp; Tugas</span></div>
+    <div class="timeline">
+      <div class="tl-item"><div class="tl-card c-study">
+        <div class="tl-time">18:30 – 21:30</div>
+        <div class="tl-title">📚 Kuliah Online <span class="badge b-study">3 jam</span></div>
+        <div class="tl-sub">Fokus penuh · catat poin penting agar tugas malam lebih cepat selesai</div>
+      </div></div>
+      <div class="tl-item"><div class="tl-card c-prep">
+        <div class="tl-time">21:30 – 21:45</div>
+        <div class="tl-title">Istirahat sejenak · minum air</div>
+      </div></div>
+      <div class="tl-item"><div class="tl-card c-study">
+        <div class="tl-time">21:45 – 22:45</div>
+        <div class="tl-title">✏️ Tugas Kuliah <span class="badge b-study">1 jam — hard stop</span></div>
+        <div class="tl-sub">Prioritaskan deadline terdekat. Jam 22:45 berhenti apapun kondisinya — lanjut besok</div>
+      </div></div>
+      <div class="tl-item"><div class="tl-card c-wind">
+        <div class="tl-time">22:45 – 23:00</div>
+        <div class="tl-title">🌙 Wind Down</div>
+        <div class="tl-sub">Jauh dari layar · siapkan baju olahraga besok · to-do list besok · matikan notif HP</div>
+      </div></div>
+      <div class="tl-item"><div class="tl-card c-sleep">
+        <div class="tl-time">23:00 – 05:00</div>
+        <div class="tl-title">😴 Tidur <span class="badge b-rest">6 jam</span></div>
+        <div class="tl-sub">Konsisten jam tidur = kualitas tidur lebih baik meski durasinya terbatas</div>
+      </div></div>
+    </div>
+
+    <div class="bonus-box">
+      🎉 <strong>Keuntungan kuliah jam 18:30:</strong> Slot 16:15–18:00 adalah waktu bonus yang dulu tidak ada. Tidak perlu lagi bergantung pada malam hari untuk belajar Cisco/HTB atau mengerjakan servis laptop.
+    </div>
+
+    <div style="margin-top:28px">
+      <div class="section-title" style="font-size:18px;margin-bottom:12px">Rotasi Belajar Teknis</div>
+      <table class="rotasi-table">
+        <tr>
+          <th>Hari</th><th>Slot Standby</th><th>Slot Sore 16:15</th>
+        </tr>
+        <tr><td style="color:var(--cream)">Senin</td><td style="color:#79c0ff">Cisco Modul</td><td style="color:#79c0ff">Cisco Lanjutan</td></tr>
+        <tr><td style="color:var(--cream)">Selasa</td><td style="color:#f47067">HTB Machine</td><td style="color:#f47067">HTB Lanjutan</td></tr>
+        <tr><td style="color:var(--cream)">Rabu</td><td style="color:#79c0ff">Cisco Modul</td><td style="color:#bc8cff">Servis / Review</td></tr>
+        <tr><td style="color:var(--cream)">Kamis</td><td style="color:#e8a838">Review Soal</td><td style="color:#bc8cff">Servis Laptop</td></tr>
+        <tr><td style="color:var(--cream)">Jumat</td><td style="color:#79c0ff">Cisco Modul</td><td style="color:#79c0ff">Cisco Lab</td></tr>
+        <tr><td style="color:var(--cream)">Sabtu</td><td style="color:#8b949e">Fleksibel</td><td style="color:#8b949e">Kejar Tertinggal</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- =================== MINGGU =================== -->
+<div id="jadwal-minggu" class="page">
+  <div class="section">
+    <div class="section-title">Hari Minggu</div>
+    <div class="section-sub">Hari recovery + catch-up. Tidak ada kuliah — gunakan dengan bijak.</div>
+
+    <div class="divider-label"><span>Pagi</span></div>
+    <div class="timeline">
+      <div class="tl-item"><div class="tl-card c-prep">
+        <div class="tl-time">05:00 – 05:15</div><div class="tl-title">Bangun</div>
+      </div></div>
+      <div class="tl-item"><div class="tl-card c-sport">
+        <div class="tl-time">05:15 – 06:15</div>
+        <div class="tl-title">🏃 Olahraga Lebih Santai <span class="badge b-new">1 jam</span></div>
+        <div class="tl-sub">Lari lebih jauh, bersepeda, atau yoga — variasi agar tidak bosan. Timbang BB setiap 2 minggu</div>
+      </div></div>
+      <div class="tl-item"><div class="tl-card c-prep">
+        <div class="tl-time">06:15 – 08:00</div>
+        <div class="tl-title">Mandi · Sarapan santai · Ibadah</div>
+        <div class="tl-sub">Nikmati pagi — satu-satunya hari tanpa terburu-buru</div>
+      </div></div>
+    </div>
+
+    <div class="divider-label"><span>Siang</span></div>
+    <div class="timeline">
+      <div class="tl-item"><div class="tl-card c-study">
+        <div class="tl-time">08:00 – 10:00</div>
+        <div class="tl-title">✏️ Tugas Menumpuk / Review Materi <span class="badge b-study">catch-up</span></div>
+        <div class="tl-sub">Kerjakan tugas yang belum selesai. Sudah beres → review materi minggu ini</div>
+      </div></div>
+      <div class="tl-item"><div class="tl-card c-htb">
+        <div class="tl-time">10:00 – 12:00</div>
+        <div class="tl-title">🔧 Servis Laptop <span class="badge b-occ">jika ada order</span></div>
+        <div class="tl-sub">Kerjakan order servisan. Tidak ada → lanjut Cisco/HTB atau istirahat total</div>
+      </div></div>
+      <div class="tl-item"><div class="tl-card c-prep">
+        <div class="tl-time">12:00 – 13:00</div>
+        <div class="tl-title">Makan siang · Istirahat</div>
+      </div></div>
+    </div>
+
+    <div class="divider-label"><span>Sore</span></div>
+    <div class="timeline">
+      <div class="tl-item"><div class="tl-card c-side">
+        <div class="tl-time">13:00 – 15:00</div>
+        <div class="tl-title">💰 Batch Konten Side Hustle <span class="badge b-new">2 jam</span></div>
+        <div class="tl-sub">Buat konten FB Pro, rekam TikTok, update Shopee untuk seminggu ke depan sekaligus</div>
+      </div></div>
+      <div class="tl-item"><div class="tl-card c-cisco">
+        <div class="tl-time">15:00 – 17:00</div>
+        <div class="tl-title">📡 Cisco / HTB — Sesi Panjang <span class="badge b-tech">2 jam</span></div>
+        <div class="tl-sub">Sesi belajar lebih dalam. Review modul, kerjakan lab, atau lanjut machine HTB</div>
+      </div></div>
+      <div class="tl-item"><div class="tl-card c-prep">
+        <div class="tl-time">17:00 – 19:00</div>
+        <div class="tl-title">Waktu pribadi / Keluarga</div>
+        <div class="tl-sub">Santai, nonton, berkumpul keluarga. Otak perlu istirahat total agar produktif minggu depan</div>
+      </div></div>
+    </div>
+
+    <div class="divider-label"><span>Malam</span></div>
+    <div class="timeline">
+      <div class="tl-item"><div class="tl-card c-prep">
+        <div class="tl-time">19:00 – 20:00</div>
+        <div class="tl-title">Makan malam · Review mingguan</div>
+        <div class="tl-sub">Evaluasi: olahraga berapa kali? Konten keluar? Cisco progress? BB naik/turun?</div>
+      </div></div>
+      <div class="tl-item"><div class="tl-card c-prep">
+        <div class="tl-time">20:00 – 22:30</div>
+        <div class="tl-title">Waktu bebas / Hiburan</div>
+        <div class="tl-sub">Film, game, atau ngobrol santai. Tidur lebih awal = energi penuh hari Senin</div>
+      </div></div>
+      <div class="tl-item"><div class="tl-card c-sleep">
+        <div class="tl-time">22:30 – 05:00</div>
+        <div class="tl-title">😴 Tidur lebih awal <span class="badge b-rest">6,5 jam</span></div>
+        <div class="tl-sub">Recovery optimal sebelum memulai pekan baru</div>
+      </div></div>
+    </div>
+  </div>
+</div>
+
+<!-- =================== ROADMAP =================== -->
+<div id="roadmap" class="page">
+  <div class="section">
+    <div class="section-title">Goals & Roadmap</div>
+    <div class="section-sub">Target yang ingin dicapai hingga akhir tahun 2026</div>
+
+    <div class="goals-grid">
+
+      <div class="goal-card">
+        <div class="goal-header">
+          <div><div class="goal-title"><span class="goal-icon">🏋️</span> Olahraga Rutin — Turun BB</div>
+          <div class="goal-sub">45 menit pagi · 6x seminggu · Mulai minggu ini<br>Timbang BB tiap 2 minggu · Foto progress tiap bulan</div></div>
+          <span class="badge b-new">mulai kini</span>
+        </div>
+        <div class="progress-track"><div class="progress-fill" style="width:5%"></div></div>
+        <div class="progress-label">9 bulan konsisten = perubahan nyata</div>
+      </div>
+
+      <div class="goal-card">
+        <div class="goal-header">
+          <div><div class="goal-title"><span class="goal-icon">📡</span> Cisco CCNA — 6 Modul</div>
+          <div class="goal-sub">Selesai Desember 2026 · ±1,5 bulan per modul<br>Slot: standby kerja + sore 16:15 + Minggu sore</div></div>
+          <span class="badge b-tech">teknis</span>
+        </div>
+        <div class="cisco-mods">
+          <div class="mod mod-active"><div class="mod-num">1</div><div class="mod-name">Network Basics</div><div class="mod-period">Apr–Mei</div></div>
+          <div class="mod"><div class="mod-num">2</div><div class="mod-name">Switching</div><div class="mod-period">Jun–Jul</div></div>
+          <div class="mod"><div class="mod-num">3</div><div class="mod-name">Routing</div><div class="mod-period">Jul–Agt</div></div>
+          <div class="mod"><div class="mod-num">4</div><div class="mod-name">WAN / IPv6</div><div class="mod-period">Sep–Okt</div></div>
+          <div class="mod"><div class="mod-num">5</div><div class="mod-name">Security</div><div class="mod-period">Okt–Nov</div></div>
+          <div class="mod"><div class="mod-num">6</div><div class="mod-name">Network Mgmt</div><div class="mod-period">Nov–Des</div></div>
+        </div>
+        <div class="progress-track" style="margin-top:14px"><div class="progress-fill" style="width:5%;background:linear-gradient(90deg,#58a6ff,#79c0ff)"></div></div>
+        <div class="progress-label">Modul 1 aktif — Apr 2026</div>
+      </div>
+
+      <div class="goal-card">
+        <div class="goal-header">
+          <div><div class="goal-title"><span class="goal-icon">🔴</span> HTB — Hacking & Cybersecurity</div>
+          <div class="goal-sub">1 hari/minggu saat standby + slot sore 16:15 rotasi<br>Rabu & Minggu dapat sesi lebih panjang</div></div>
+          <span class="badge b-tech">teknis</span>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px">
+          <div style="padding:10px 12px;background:rgba(244,112,103,.06);border:1px solid rgba(244,112,103,.15);border-radius:8px;font-size:12px;color:#f47067">Apr–Jun<br><span style="opacity:.7">Starting Point</span></div>
+          <div style="padding:10px 12px;background:rgba(244,112,103,.06);border:1px solid rgba(244,112,103,.15);border-radius:8px;font-size:12px;color:#f47067">Jul–Sep<br><span style="opacity:.7">Easy Machines</span></div>
+          <div style="padding:10px 12px;background:rgba(244,112,103,.06);border:1px solid rgba(244,112,103,.15);border-radius:8px;font-size:12px;color:#f47067">Okt–Nov<br><span style="opacity:.7">Medium Machines</span></div>
+          <div style="padding:10px 12px;background:rgba(244,112,103,.06);border:1px solid rgba(244,112,103,.15);border-radius:8px;font-size:12px;color:#f47067">Desember<br><span style="opacity:.7">CTF + Portfolio</span></div>
+        </div>
+        <div class="progress-track" style="margin-top:14px"><div class="progress-fill" style="width:5%;background:linear-gradient(90deg,#f47067,#ff9492)"></div></div>
+      </div>
+
+      <div class="goal-card">
+        <div class="goal-header">
+          <div><div class="goal-title"><span class="goal-icon">💰</span> Side Hustle — 3 Channel</div>
+          <div class="goal-sub">Niche: laptop · elektronik · jaringan — sesuai keahlianmu</div></div>
+          <span class="badge b-new">cuan</span>
+        </div>
+        <div class="hustle-grid">
+          <div class="hustle-card" style="background:rgba(86,211,100,.05);border-color:rgba(86,211,100,.2)">
+            <div class="hustle-title" style="color:#56d364">FB Pro</div>
+            <div class="hustle-detail" style="color:#56d364">1 konten/hari<br>15:15–16:15</div>
+          </div>
+          <div class="hustle-card" style="background:rgba(88,166,255,.05);border-color:rgba(88,166,255,.2)">
+            <div class="hustle-title" style="color:#58a6ff">TikTok</div>
+            <div class="hustle-detail" style="color:#58a6ff">Short video<br>review produk</div>
+          </div>
+          <div class="hustle-card" style="background:rgba(232,168,56,.05);border-color:rgba(232,168,56,.2)">
+            <div class="hustle-title" style="color:#e8a838">Shopee</div>
+            <div class="hustle-detail" style="color:#e8a838">3 link afiliasi<br>per hari</div>
+          </div>
+        </div>
+        <div class="progress-track" style="margin-top:14px"><div class="progress-fill" style="width:8%;background:linear-gradient(90deg,#56d364,#7ee787)"></div></div>
+      </div>
+
+      <div class="goal-card">
+        <div class="goal-header">
+          <div><div class="goal-title"><span class="goal-icon">🔧</span> Servis Laptop Sampingan</div>
+          <div class="goal-sub">Slot utama: Senin–Sabtu 16:15–18:00 jika ada order<br>Backup: Minggu 10:00–12:00 · Target 4–6 unit/bulan</div></div>
+          <span class="badge b-occ">kadang</span>
+        </div>
+        <div style="font-size:12px;color:var(--muted);margin-top:8px">Promosi via WhatsApp & FB · Keahlian teknis jadi nilai lebih dibanding servis biasa</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- =================== TIPS =================== -->
+<div id="tips" class="page">
+  <div class="section">
+    <div class="section-title">Tips & Aturan</div>
+    <div class="section-sub">7 aturan konkret yang menentukan berhasil atau tidaknya jadwal ini</div>
+
+    <div class="tips-list">
+      <div class="tip-card">
+        <div class="tip-icon" style="background:rgba(188,140,255,.1)">⏰</div>
+        <div>
+          <div class="tip-title">Jam 23:00 = mati lampu, tidak ada negosiasi</div>
+          <div class="tip-note">Apapun yang belum selesai, simpan dan lanjut besok. Konsistensi jam tidur jauh lebih penting dari satu tugas yang kelar</div>
+        </div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon" style="background:rgba(86,211,100,.08)">🏃</div>
+        <div>
+          <div class="tip-title">Baju olahraga disiapkan malam sebelumnya</div>
+          <div class="tip-note">Satu langkah kecil ini menentukan konsistensi bulanan. Kalau harus cari-cari jam 05:00, godaan rebahan itu sangat nyata</div>
+        </div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon" style="background:rgba(88,166,255,.08)">📱</div>
+        <div>
+          <div class="tip-title">HP tidak dipegang saat standby kecuali untuk belajar</div>
+          <div class="tip-note">Scroll sosmed saat standby adalah pencuri waktu terbesar. Cisco/HTB di slot itu = 1–2 jam belajar gratis per hari tanpa biaya tambahan apapun</div>
+        </div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon" style="background:rgba(232,168,56,.08)">📝</div>
+        <div>
+          <div class="tip-title">Catat poin penting selama kuliah berlangsung</div>
+          <div class="tip-note">Memotong waktu tugas malam dari 2 jam menjadi 1 jam. Ini adalah kunci utama agar bisa konsisten tidur tepat jam 23:00</div>
+        </div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon" style="background:rgba(121,192,255,.08)">🔄</div>
+        <div>
+          <div class="tip-title">Rotasi Cisco & HTB — jangan campur dalam satu hari</div>
+          <div class="tip-note">Sen·Rab·Jum = Cisco · Selasa = HTB · Kamis = review soal · Sabtu = fleksibel/kejar yang tertinggal</div>
+        </div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon" style="background:rgba(86,211,100,.08)">📊</div>
+        <div>
+          <div class="tip-title">Review mingguan setiap Minggu malam</div>
+          <div class="tip-note">5 pertanyaan: olahraga berapa kali? konten keluar? Cisco progress? BB turun? tugas on track? — 3 dari 5 iya = kamu di jalur yang benar</div>
+        </div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon" style="background:rgba(244,112,103,.08)">🚨</div>
+        <div>
+          <div class="tip-title">Jika ada hari kacau, tidak perlu mengejar semua</div>
+          <div class="tip-note">Urutan darurat: (1) kuliah, (2) tugas, (3) olahraga, (4) side hustle, (5) Cisco/HTB. Jangan burnout hanya karena melewatkan satu hari</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="priority-box">
+      <h3>Urutan Prioritas Harian</h3>
+      <div class="priority-steps">
+        <div class="step highlight">😴 Tidur cukup</div>
+        <div class="step">→</div>
+        <div class="step highlight">🏃 Olahraga</div>
+        <div class="step">→</div>
+        <div class="step">🔧 Kerja</div>
+        <div class="step">→</div>
+        <div class="step">💰 Side hustle</div>
+        <div class="step">→</div>
+        <div class="step highlight">📡 Cisco/HTB/Servis</div>
+        <div class="step">→</div>
+        <div class="step">📚 Kuliah</div>
+        <div class="step">→</div>
+        <div class="step">✏️ Tugas</div>
+      </div>
+      <div style="margin-top:16px;font-size:13px;color:var(--muted);line-height:1.7">
+        Dalam <strong style="color:var(--gold)">9 bulan</strong> ke depan dengan jadwal ini: tubuh lebih sehat, 6 modul Cisco selesai, skill hacking HTB berkembang, 3 channel cuan berjalan, dan kuliah tetap on track. 💪
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  Dibuat dengan penuh semangat · <strong>Jadwal Hidup Terstruktur 2026</strong><br>
+  <span style="margin-top:4px;display:block;font-size:11px">Konsisten &gt; Sempurna. Mulai hari ini, bukan besok.</span>
+</footer>
+
+<script>
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.currentTarget.classList.add('active');
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+</script>
+</body>
+</html>
